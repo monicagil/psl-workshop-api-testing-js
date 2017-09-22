@@ -5,75 +5,75 @@ const chai = require('chai');
 const expect = chai.expect;
 
 describe('First Api Tests', () => {
-	it('Consume GET Service', () => {
-   return agent.get('https://httpbin.org/ip').then((response) => {
-     expect(response.status).to.equal(statusCode.OK);
-     expect(response.body).to.have.property('origin');
-   });
- });
+  it('Consume GET Service', () => {
+    return agent.get('https://httpbin.org/ip').then((response) => {
+      expect(response.status).to.equal(statusCode.OK);
+      expect(response.body).to.have.property('origin');
+    });
+  });
 
- it('Consume GET Service with query parameters', () => {
-   const query = {
-     name: 'John',
-     age: '31',
-     city: 'New York'
-   };
+  it('Consume GET Service with query parameters', () => {
+    const query = {
+      name: 'John',
+      age: '31',
+      city: 'New York'
+    };
 
-   return agent.get('https://httpbin.org/get')
-     .query(query)
-     .then((response) => {
-       expect(response.status).to.equal(statusCode.OK);
-       expect(response.body.args).to.eql(query);
-     });
- });
+    return agent.get('https://httpbin.org/get')
+      .query(query)
+      .then((response) => {
+        expect(response.status).to.equal(statusCode.OK);
+        expect(response.body.args).to.eql(query);
+      });
+  });
 
   it('Consume POST Service', () => {
-   const body = {
-     name: 'John',
-     age: 31,
-     city: 'New York'
-   };
+    const body = {
+      name: 'John',
+      age: 31,
+      city: 'New York'
+    };
 
-   return agent
-     .post('https://httpbin.org/post')
-     .send(body)
-     .then((response) => {
-       expect(response.status).to.equal(statusCode.OK);
-       expect(response.body.json).to.eql(body);
-     });
- });
+    return agent
+      .post('https://httpbin.org/post')
+      .send(body)
+      .then((response) => {
+        expect(response.status).to.equal(statusCode.OK);
+        expect(response.body.json).to.eql(body);
+      });
+  });
 
-   it('Consume PUT Service', () => {
-   const body = {
-     name: 'John',
-     age: 31,
-     city: 'New York2'
-   };
+  it('Consume PUT Service', () => {
+    const body = {
+      name: 'John',
+      age: 31,
+      city: 'New York2'
+    };
 
-   return agent
-     .put('https://httpbin.org/put')
-     .send(body)
-     .then((response) => {
-       expect(response.status).to.equal(statusCode.OK);
-       expect(response.body.json).to.eql(body);
-     });
- });
- 
-   it('Consume PATCH Service', () => {
-   const body = {
-     name: 'John',
-     age: 31,
-     city: 'New York2'
-   };
+    return agent
+      .put('https://httpbin.org/put')
+      .send(body)
+      .then((response) => {
+        expect(response.status).to.equal(statusCode.OK);
+        expect(response.body.json).to.eql(body);
+      });
+  });
 
-   return agent
-     .patch('https://httpbin.org/patch')
-     .send(body)
-     .then((response) => {
-       expect(response.status).to.equal(statusCode.OK);
-       expect(response.body.json).to.eql(body);
-     });
- });
+  it('Consume PATCH Service', () => {
+    const body = {
+      name: 'John',
+      age: 31,
+      city: 'New York2'
+    };
+
+    return agent
+      .patch('https://httpbin.org/patch')
+      .send(body)
+      .then((response) => {
+        expect(response.status).to.equal(statusCode.OK);
+        expect(response.body.json).to.eql(body);
+      });
+  });
 
   it('consume HEAD Service', () => {
     return agent
@@ -85,22 +85,17 @@ describe('First Api Tests', () => {
   });
 
 
-   it('Consume DELETE Service', () => {
-   const body = {
-     name: 'John'
-   };
+  it('Consume DELETE Service', () => {
+    const body = {
+      name: 'John'
+    };
 
-   return agent
-     .del('https://httpbin.org/delete')
-     .send(body)
-     .then((response) => {
-       expect(response.status).to.equal(statusCode.OK);
+    return agent
+      .del('https://httpbin.org/delete')
+      .send(body)
+      .then((response) => {
+        expect(response.status).to.equal(statusCode.OK);
+      });
+  });
 
-     });
- });
-
-
- 
 });
-
-
