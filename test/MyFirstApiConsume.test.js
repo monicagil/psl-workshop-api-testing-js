@@ -1,7 +1,6 @@
 const agent = require('superagent-promise')(require('superagent'), Promise);
 const statusCode = require('http-status-codes');
 const chai = require('chai');
-
 const expect = chai.expect;
 
 describe('First Api Tests', () => {
@@ -83,7 +82,6 @@ describe('First Api Tests', () => {
         expect(response.headers).to.have.property('server', 'meinheld/0.6.1');
       });
   });
-
 
   it('Consume DELETE Service', () => {
     const body = {
