@@ -34,8 +34,5 @@
   "dependencies": {
     "superagent": "^3.6.0",
     "superagent-promise": "^1.1.0"
-  },
-  "directories": {
-    "test": "test"
   }
 }
