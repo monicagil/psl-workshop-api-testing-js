@@ -12,7 +12,7 @@ describe('Github Api Test', () => {
       agent.get(`${urlBase}/repos/${githubUserName}/${repository}`)
         .then((response) => {
           expect(response.status).to.equal(statusCode.OK);
-          expect(response.body.description).equal('taller automatizacion');
+          expect(response.body.description).equal('This is a Workshop about Api Testing in JavaScript');
         }));
   });
 
