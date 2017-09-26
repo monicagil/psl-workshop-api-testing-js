@@ -1,14 +1,29 @@
-  it('Consume GET Service with query parameters', () => {
-    const query = {
-      name: 'Alejandro Perdomo',
-      company: 'PSL',
-      location: 'Colombia'
-    };
+const agent = require('superagent-promise')(require('superagent'), Promise);
+const { expect } = require('chai');
 
-    return agent.get('https://api.github.com/users/aperdomob')
-      .query(query)
-      .then((response) => {
-        expect(response.status).to.equal(statusCode.OK);
-        expect(response.body.args).to.eql(query);
-      });
+const userName = 'aperdomob';
+const urlBase = 'https://api.github.com';
+
+describe('Github get request', () => {
+  const name = 'Alejandro Perdomo';
+  const company = 'PSL';
+  const location = 'Colombia';
+  describe(`when get ${userName} user`, () => {
+    let user;
+
+    before(() => {
+      const userQuery = agent.get(`${urlBase}/users/${userName}`)
+        .auth('token', process.env.ACCESS_TOKEN)
+        .then((response) => {
+          user = response.body;
+        });
+      return userQuery;
+    });
+
+    it('Consume GET aperdomob', () => {
+      expect(user.name).to.equal(name);
+      expect(user.company).to.equal(company);
+      expect(user.location).to.equal(location);
+    });
   });
+});
