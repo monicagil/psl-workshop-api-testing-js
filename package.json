@@ -1,5 +1,5 @@
 {
-  "name": "psl-workshop-api-testing-js",
+  "name": "monicagil",
   "version": "1.0.0",
   "description": "This is a Workshop about Api Testing in JavaScript",
   "main": "index.js",
@@ -35,5 +35,8 @@
   "dependencies": {
     "superagent": "^3.6.0",
     "superagent-promise": "^1.1.0"
+  },
+  "directories": {
+    "test": "test"
   }
 }
