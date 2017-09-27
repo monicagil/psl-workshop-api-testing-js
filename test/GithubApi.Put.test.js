@@ -22,19 +22,19 @@ describe('Github put request', () => {
   });
 
   describe('users list', () => {
-    let userQuery;
+    let usersQuery;
 
     before(() => {
-      userQuery = agent.get(`${urlBase}/user/following`)
+      usersQuery = agent.get(`${urlBase}/user/following`)
         .auth('token', process.env.ACCESS_TOKEN)
         .then(response => response.body.find(user => user.login === username));
     });
 
     it('should follow aperdomob', () =>
-      userQuery.then(user => assert.exists(user)));
+      usersQuery.then(user => assert.exists(user)));
   });
 
-  describe('follow a user again', () => {
+  describe('follow aperdomob again', () => {
     let followUserAgainQuery;
 
     before(() => {
@@ -51,7 +51,6 @@ describe('Github put request', () => {
   });
   describe('users list again', () => {
     let userQuery;
-
     before(() => {
       userQuery = agent.get(`${urlBase}/user/following`)
         .auth('token', process.env.ACCESS_TOKEN)
