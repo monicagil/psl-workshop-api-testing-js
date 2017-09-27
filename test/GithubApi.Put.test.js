@@ -49,6 +49,7 @@ describe('Github put request', () => {
       });
     });
   });
+
   describe('users list again', () => {
     let userQuery;
     before(() => {
