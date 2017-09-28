@@ -11,6 +11,7 @@ describe('Github HEAD request', () => {
     before(() => {
       headQuery = agent.head(urlBase);
     });
+    
     it('should have information', () =>
       headQuery.catch((error) => {
         expect(error.response.headers.location).to.equal(newurlBase);
