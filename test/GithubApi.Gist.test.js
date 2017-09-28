@@ -56,17 +56,17 @@ describe('Github gist request', () => {
         .then(response => expect(response.status).to.equal(statusCode.NO_CONTENT)));
   });
 
-   describe('get the delete gist', () => {
-        let notExistGist;
+  describe('get the delete gist', () => {
+    let notExistGist;
 
-        before(() => {
-          notExistGist = agent
-            .get(gist.url)
-            .auth('token', process.env.ACCESS_TOKEN);
-        });
+    before(() => {
+      notExistGist = agent
+        .get(bodygist.url)
+        .auth('token', process.env.ACCESS_TOKEN);
+    });
 
-        it('then the Gits should not be accessible', () =>
-          notExistGist
-            .catch(response => expect(response.status).to.equal(statusCode.NOT_FOUND)));
-      });
+    it('then the Gits should not be accessible', () =>
+      notExistGist
+        .catch(response => expect(response.status).to.equal(statusCode.NOT_FOUND)));
+  });
 });
