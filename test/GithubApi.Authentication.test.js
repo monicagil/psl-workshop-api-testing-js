@@ -24,3 +24,5 @@ describe('Github Api Test', () => {
         expect(response.body.description).equal('This is a Workshop about Api Testing in JavaScript');
       }));
 });
+
+
