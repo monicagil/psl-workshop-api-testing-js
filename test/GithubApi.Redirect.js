@@ -16,5 +16,19 @@ describe('Github HEAD request', () => {
         expect(error.response.headers.location).to.equal(newurlBase);
         expect(error.status).to.equal(statusCode.MOVED_PERMANENTLY);
       }));
+
+    describe('verify redirect', () => {
+      let oldRequest;
+
+      before(() => {
+        oldRequest = agent
+          .get(urlBase);
+      });
+
+      it('should be redirected', () =>
+        oldRequest.then((response) => {
+          expect(response.status).to.equal(statusCode.OK);
+        }));
+    });
   });
 });
