@@ -71,5 +71,6 @@ describe('Github post patch request', () => {
         expect(modifiedIssue.body).to.equal(updateIssue.body);
       });
     });
+    
   });
 });
