@@ -10,7 +10,6 @@ describe('Github post patch request', () => {
       .then((response) => {
         user = response.body;
       });
-
     return userQuery;
   });
 
@@ -62,7 +61,6 @@ describe('Github post patch request', () => {
           .then((response) => {
             modifiedIssue = response.body;
           });
-
         return modifiedIssueQuery;
       });
 
@@ -71,6 +69,5 @@ describe('Github post patch request', () => {
         expect(modifiedIssue.body).to.equal(updateIssue.body);
       });
     });
-    
   });
 });
