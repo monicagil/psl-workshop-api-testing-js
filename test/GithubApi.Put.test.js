@@ -48,17 +48,17 @@ describe('Github put request', () => {
         expect(response.body).to.eql({});
       });
     });
-  });
 
-  describe('users list again', () => {
-    let userQuery;
-    before(() => {
-      userQuery = agent.get(`${urlBase}/user/following`)
-        .auth('token', process.env.ACCESS_TOKEN)
-        .then(response => response.body.find(user => user.login === username));
+    describe('users list again', () => {
+      let userQuery;
+      before(() => {
+        userQuery = agent.get(`${urlBase}/user/following`)
+          .auth('token', process.env.ACCESS_TOKEN)
+          .then(response => response.body.find(user => user.login === username));
+      });
+
+      it('should follow aperdomob again', () =>
+        userQuery.then(user => assert.exists(user)));
     });
-
-    it('should follow aperdomob again', () =>
-      userQuery.then(user => assert.exists(user)));
   });
 });
